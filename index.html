@@ -23,18 +23,19 @@
       var height = canvas.height;
       var x = 0;
       var y = canvas.height/2;
+      var increase = 1;
       
       obj = 50;
       canvas.width  = window.innerWidth/1.005;
       canvas.height = window.innerHeight/1.005;
       function drawObj() {
         ctx.fillStyle="#353839";
+        x += increase;
         ctx.fillRect(x,y,obj,obj);
       }
       
       function openingScene() {
-        setInterval(drawObj(), 5000);
-        x += 1;
+        setInterval(drawObj(), 100);
       }
       openingScene();
     </script>
