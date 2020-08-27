@@ -28,11 +28,11 @@
       obj = 50;
       canvas.width  = window.innerWidth/1.005;
       canvas.height = window.innerHeight/1.005;
-      function drawObj() {
+      setInterval(function drawObj() {
         ctx.fillStyle="#353839";
         x += increase;
         ctx.fillRect(x,y,obj,obj);
-      } setInterval(drawObs(),100);
+      },25);
       drawObj();
       
       function openingScene() {
