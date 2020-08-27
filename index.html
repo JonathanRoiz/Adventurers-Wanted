@@ -29,6 +29,7 @@
       canvas.width  = window.innerWidth/1.005;
       canvas.height = window.innerHeight/1.005;
       setInterval(function drawObj() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle="#353839";
         x += increase;
         ctx.fillRect(x,y,obj,obj);
