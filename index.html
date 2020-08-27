@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <style>
+      canvas {background-color: #FFDEAD;}
+      canvas {
+        padding: 0;
+        margin: auto;
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width=100% height=100% style="border:1px solid #000000"> ></canvas>
+    <script language = "javascript">
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+      var width = canvas.width;
+      var height = canvas.height;
+      
+      obj = 50;
+      canvas.width  = window.innerWidth/1.005;
+      canvas.height = window.innerHeight/1.005;
+      function drawObj() {
+        ctx.fillStyle="#353839";
+        ctx.fillRect(width/2,height/2,obj,obj);
+      }
+      drawObj()
+    </script>
+  </body>
+</html>
