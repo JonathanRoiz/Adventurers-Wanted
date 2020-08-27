@@ -24,7 +24,6 @@
       var x = 0;
       var y = canvas.height/2;
       var increase = 1;
-      var my_image = new Image();
       
       obj = 50;
       canvas.width  = window.innerWidth/1.005;
@@ -34,7 +33,10 @@
         ctx.fillStyle="#353839";
         x += increase;
         ctx.fillRect(x,y,obj,obj);
-        my_image.src = 'pixilart-drawing.png';
+        var img = document.createElement('img'); 
+        img.src = 'https://media.geeksforgeeks.org/wp-content/uploads/20190529122828/bs21.png'; 
+        document.getElementById('body').appendChild(img); 
+        down.innerHTML = "Image Element Added.";
       },25);
             
       function openingScene() {
