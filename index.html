@@ -24,7 +24,6 @@
       var x = 0;
       var y = canvas.height/2;
       var increase = 1;
-      var img = document.createElement('img'); 
       
       obj = 50;
       canvas.width  = window.innerWidth/1.005;
@@ -32,15 +31,11 @@
       setInterval(function drawObj() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle="#353839";
-        x += increase;
         ctx.fillRect(x,y,obj,obj);
-        img.src = 'https://media.geeksforgeeks.org/wp-content/uploads/20190529122828/bs21.png'; 
-        document.getElementById('body').appendChild(img); 
-        down.innerHTML = "Image Element Added.";
       },25);
             
       function openingScene() {
-        
+        x += increase;
       }
       openingScene();
     </script>
