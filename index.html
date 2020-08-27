@@ -32,10 +32,11 @@
         ctx.fillStyle="#353839";
         x += increase;
         ctx.fillRect(x,y,obj,obj);
-      }
+      } setInterval(drawObs(),100);
+      drawObj();
       
       function openingScene() {
-        setInterval(drawObj(), 100);
+        
       }
       openingScene();
     </script>
