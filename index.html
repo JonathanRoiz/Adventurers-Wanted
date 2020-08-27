@@ -21,15 +21,22 @@
       var ctx = canvas.getContext("2d");
       var width = canvas.width;
       var height = canvas.height;
+      var x = 0;
+      var y = canvas.height/2;
       
       obj = 50;
       canvas.width  = window.innerWidth/1.005;
       canvas.height = window.innerHeight/1.005;
       function drawObj() {
         ctx.fillStyle="#353839";
-        ctx.fillRect(width/2,height/2,obj,obj);
+        ctx.fillRect(x,y,obj,obj);
       }
-      drawObj()
+      
+      function openingScene() {
+        setInterval(drawObj(), 5000)
+        x += x;
+      }
+      openingScene
     </script>
   </body>
 </html>
