@@ -24,6 +24,7 @@
       var x = 0;
       var y = canvas.height/2;
       var increase = 1;
+      var my_image = new Image();
       
       obj = 50;
       canvas.width  = window.innerWidth/1.005;
@@ -33,10 +34,7 @@
         ctx.fillStyle="#353839";
         x += increase;
         ctx.fillRect(x,y,obj,obj);
-        var IMG = document.createElement("IMG");
-        IMG.setAttribute("src", "https://thenypost.files.wordpress.com/2019/08/space-signals-3246.jpg?quality=90&strip=all&strip=all");
-        IMG.setAttribute("width", "10000");
-        IMG.setAttribute("height", "10000");
+        my_image.src = 'pixilart-drawing.png';
       },25);
             
       function openingScene() {
