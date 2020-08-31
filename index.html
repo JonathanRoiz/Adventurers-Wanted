@@ -21,23 +21,54 @@
       var ctx = canvas.getContext("2d");
       var width = canvas.width;
       var height = canvas.height;
-      var x = 0;
-      var y = canvas.height/2;
-      var increase = 1;
+      var x = width;
+      var y = height;
+      
+      document.addEventListener("Akeydown", DkeyDownHandler, false);
+      document.addEventListener("Akeyup", DkeyUpHandler, false);
+      document.addEventListener("Dkeydown", AkeyDownHandler, false);
+      document.addEventListener("Dkeyup", AkeyUpHandler, false);
+      
+      function DkeyDownHandler(e) {
+        if(e.keyCode == 68) {
+        	dPressed = true;
+        }
+      }
+      function DkeyUpHandler(e) {
+          if(e.keyCode == 68) {
+          	dPressed = false;
+            alert("hello");
+          }
+      }
+      function AkeyDownHandler(e) {
+        if(e.keyCode == 65) {
+        	aPressed = true;
+        }
+      }
+      function AkeyUpHandler(e) {
+          if(e.keyCode == 65) {
+          	aPressed = false;
+          }
+      }
+      
+      setInterval(function() {
+      	if (dPressed == true) {
+        	x += 2;
+        }
+        if (aPressed == true) {
+        	x += 2;
+        }
+      },25)
       
       obj = 50;
       canvas.width  = window.innerWidth/1.005;
       canvas.height = window.innerHeight/1.005;
-      setInterval(function drawObj() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      setInterval(function() {
+      	ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle="#353839";
         ctx.fillRect(x,y,obj,obj);
-      },25);
-            
-      function openingScene() {
-        x += increase;
-      }
-      openingScene();
+      },25)
+      
     </script>
   </body>
 </html>
