@@ -120,10 +120,6 @@
       		{height: canvas.width/60}
       	];
         
-		checkCollision(character,wall);
-        checkCollision(character,wall2);
-        checkCollision(character,wall3);
-        checkCollision(character,wall4);
       	if (DPressed == true) {
         	xPos += 3;
         }
@@ -136,6 +132,10 @@
         if (WPressed == true) {
         	yPos += -3;
         }
+		checkCollision(character,wall);
+        checkCollision(character,wall2);
+        checkCollision(character,wall3);
+        checkCollision(character,wall4);
       	ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle="#353839";
         ctx.fillRect(character[0].x,character[1].y,character[2].width,character[3].height);
