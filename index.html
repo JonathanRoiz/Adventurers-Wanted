@@ -63,6 +63,10 @@
       }
       
       setInterval(function() {
+		checkCollision(character,wall);
+        checkCollision(character,wall2);
+        checkCollision(character,wall3);
+        checkCollision(character,wall4);
       	if (DPressed == true) {
         	xPos += 3;
         }
@@ -84,7 +88,7 @@
    		rect1[3].height + rect1[1].y > rect2[1].y) {
     		// collision detected!
             if (APressed == true) {
-		xPos += 3;
+				xPos += 3;
             }
             if (DPressed == true) {
             	xPos -=3;
@@ -94,9 +98,6 @@
             }
             if (WPressed == true) {
             	yPos +=3;
-            }
-            if (APressed == false) {
-		xPos -= 3;
             }
             var character = [
       			{x: xPos},
@@ -150,10 +151,10 @@
         ctx.fillRect(wall3[0].x,wall3[1].y,wall3[2].width,wall3[3].height);
         ctx.fillRect(wall4[0].x,wall4[1].y,wall4[2].width,wall4[3].height);
         // Finished Drawing Borders
-        checkCollision(character,wall);
-        checkCollision(character,wall2);
-        checkCollision(character,wall3);
-        checkCollision(character,wall4);
+        //checkCollision(character,wall);
+        //checkCollision(character,wall2);
+        //checkCollision(character,wall3);
+        //checkCollision(character,wall4);
       },25)
       
     </script>
