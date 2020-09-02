@@ -116,20 +116,26 @@
       	var wall = [
       		{x: 0},
         	{y: 0},
-      		{width: canvas.width/40},
+      		{width: canvas.width/60},
       		{height: canvas.height}
       	];
         var wall2 = [
-      		{x: canvas.width-canvas.width/40},
+      		{x: canvas.width-canvas.width/60},
         	{y: 0},
-      		{width: canvas.width/40},
+      		{width: canvas.width/60},
       		{height: canvas.height}
       	];
         var wall3 = [
-      		{x: canvas.width-canvas.width/40},
-        	{y: canvas.height-canvas.height/40},
+      		{x: 0},
+        	{y: 0},
       		{width: canvas.width},
-      		{height: canvas.height/40}
+      		{height: canvas.width/60}
+      	];
+        var wall4 = [
+      		{x: 0},
+        	{y: canvas.height-canvas.width/60},
+      		{width: canvas.width},
+      		{height: canvas.width/60}
       	];
         
       	ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -138,9 +144,13 @@
         // Drawing Borders
         ctx.fillRect(wall[0].x,wall[1].y,wall[2].width,wall[3].height);
         ctx.fillRect(wall2[0].x,wall2[1].y,wall2[2].width,wall2[3].height);
+        ctx.fillRect(wall3[0].x,wall3[1].y,wall3[2].width,wall3[3].height);
+        ctx.fillRect(wall4[0].x,wall4[1].y,wall4[2].width,wall4[3].height);
         // Finished Drawing Borders
         checkCollision(character,wall);
         checkCollision(character,wall2);
+        checkCollision(character,wall3);
+        checkCollision(character,wall4);
       },25)
       
     </script>
