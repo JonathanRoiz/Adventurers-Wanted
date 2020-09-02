@@ -84,7 +84,7 @@
    		rect1[3].height + rect1[1].y > rect2[1].y) {
     		// collision detected!
             if (APressed == true) {
-				xPos += 3;
+		xPos += 3;
             }
             if (DPressed == true) {
             	xPos -=3;
@@ -95,13 +95,16 @@
             if (WPressed == true) {
             	yPos +=3;
             }
+            if (APressed == false) {
+		xPos -= 3;
+            }
             var character = [
       			{x: xPos},
         		{y: yPos},
       			{width: 50},
       			{height: 50}
       		];
-		}
+	    }
       }
       
       obsX = 50;
