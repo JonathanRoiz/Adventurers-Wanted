@@ -61,26 +61,6 @@
         	WPressed = false;
           }
       }
-      
-      setInterval(function() {
-		checkCollision(character,wall);
-        checkCollision(character,wall2);
-        checkCollision(character,wall3);
-        checkCollision(character,wall4);
-      	if (DPressed == true) {
-        	xPos += 3;
-        }
-        if (APressed == true) {
-        	xPos += -3;
-        }
-        if (SPressed == true) {
-        	yPos += 3;
-        }
-        if (WPressed == true) {
-        	yPos += -3;
-        }
-      },25)
-      
       function checkCollision(rect1,rect2) {
       	if (rect1[0].x < rect2[0].x + rect2[2].width &&
    		rect1[0].x + rect1[2].width > rect2[0].x &&
@@ -107,6 +87,25 @@
       		];
 	  	}
       }
+		
+      setInterval(function() {
+		checkCollision(character,wall);
+        checkCollision(character,wall2);
+        checkCollision(character,wall3);
+        checkCollision(character,wall4);
+      	if (DPressed == true) {
+        	xPos += 3;
+        }
+        if (APressed == true) {
+        	xPos += -3;
+        }
+        if (SPressed == true) {
+        	yPos += 3;
+        }
+        if (WPressed == true) {
+        	yPos += -3;
+        }
+      },25)
       
       obsX = 50;
       obsY = 200;
