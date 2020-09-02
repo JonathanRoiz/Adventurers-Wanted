@@ -78,12 +78,29 @@
       },25)
       
       function checkCollision(rect1,rect2) {
-      	if (rect1[0].x < rect2[0].x + rect2[2].width &&
+      	if (rect1[0].x+3 < rect2[0].x + rect2[2].width &&
    		rect1[0].x + rect1[2].width > rect2[0].x &&
    		rect1[1].y < rect2[1].y + rect2[3].height &&
    		rect1[3].height + rect1[1].y > rect2[1].y) {
     		// collision detected!
-			xPos += 3;
+            if (APressed == true) {
+				xPos += 3;
+            }
+            if (DPressed == true) {
+            	xPos -=3;
+            }
+            if (SPressed == true) {
+            	yPos -=3;
+            }
+            if (WPressed == true) {
+            	yPos +=3;
+            }
+            var character = [
+      			{x: xPos},
+        		{y: yPos},
+      			{width: 50},
+      			{height: 50}
+      		];
 		}
       }
       
@@ -97,10 +114,10 @@
       		{height: 50}
       	];
       	var obstacle = [
-      		{x: 100},
-        	{y: 100},
-      		{width: 50},
-      		{height: 100}
+      		{x: 0},
+        	{y: 0},
+      		{width: canvas.width/40},
+      		{height: canvas.height}
       	];
       	ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle="#353839";
