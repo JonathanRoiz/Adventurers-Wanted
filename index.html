@@ -88,28 +88,7 @@
 	  	}
       }
 		
-      setInterval(function() {
-		checkCollision(character,wall);
-        checkCollision(character,wall2);
-        checkCollision(character,wall3);
-        checkCollision(character,wall4);
-      	if (DPressed == true) {
-        	xPos += 3;
-        }
-        if (APressed == true) {
-        	xPos += -3;
-        }
-        if (SPressed == true) {
-        	yPos += 3;
-        }
-        if (WPressed == true) {
-        	yPos += -3;
-        }
-      },25)
-      
-      obsX = 50;
-      obsY = 200;
-      setInterval(function() {
+	  setInterval(function() {
         var character = [
       		{x: xPos},
         	{y: yPos},
@@ -154,6 +133,25 @@
         //checkCollision(character,wall2);
         //checkCollision(character,wall3);
         //checkCollision(character,wall4);
+      },25)
+		
+      setInterval(function() {
+		checkCollision(character,wall);
+        checkCollision(character,wall2);
+        checkCollision(character,wall3);
+        checkCollision(character,wall4);
+      	if (DPressed == true) {
+        	xPos += 3;
+        }
+        if (APressed == true) {
+        	xPos += -3;
+        }
+        if (SPressed == true) {
+        	yPos += 3;
+        }
+        if (WPressed == true) {
+        	yPos += -3;
+        }
       },25)
       
     </script>
