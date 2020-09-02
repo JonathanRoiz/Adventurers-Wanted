@@ -120,22 +120,6 @@
       		{height: canvas.width/60}
       	];
         
-      	ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle="#353839";
-        ctx.fillRect(character[0].x,character[1].y,character[2].width,character[3].height);
-        // Drawing Borders
-        ctx.fillRect(wall[0].x,wall[1].y,wall[2].width,wall[3].height);
-        ctx.fillRect(wall2[0].x,wall2[1].y,wall2[2].width,wall2[3].height);
-        ctx.fillRect(wall3[0].x,wall3[1].y,wall3[2].width,wall3[3].height);
-        ctx.fillRect(wall4[0].x,wall4[1].y,wall4[2].width,wall4[3].height);
-        // Finished Drawing Borders
-        //checkCollision(character,wall);
-        //checkCollision(character,wall2);
-        //checkCollision(character,wall3);
-        //checkCollision(character,wall4);
-      },25)
-		
-      setInterval(function() {
 		checkCollision(character,wall);
         checkCollision(character,wall2);
         checkCollision(character,wall3);
@@ -152,8 +136,16 @@
         if (WPressed == true) {
         	yPos += -3;
         }
+      	ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle="#353839";
+        ctx.fillRect(character[0].x,character[1].y,character[2].width,character[3].height);
+        // Drawing Borders
+        ctx.fillRect(wall[0].x,wall[1].y,wall[2].width,wall[3].height);
+        ctx.fillRect(wall2[0].x,wall2[1].y,wall2[2].width,wall2[3].height);
+        ctx.fillRect(wall3[0].x,wall3[1].y,wall3[2].width,wall3[3].height);
+        ctx.fillRect(wall4[0].x,wall4[1].y,wall4[2].width,wall4[3].height);
+        // Finished Drawing Borders
       },25)
-      
     </script>
   </body>
 </html>
