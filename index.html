@@ -19,8 +19,8 @@
     <script language = "javascript">
       var canvas = document.getElementById("myCanvas");
       var ctx = canvas.getContext("2d");
-      canvas.width  = window.innerWidth/1.001;
-      canvas.height = window.innerHeight/1.001;
+      canvas.width  = window.innerWidth/1.005;
+      canvas.height = window.innerHeight/1.005;
       var width = canvas.width/2;
       var height = canvas.height/2;
       var xPos = width;
@@ -78,7 +78,7 @@
       },25)
       
       function checkCollision(rect1,rect2) {
-      	if (rect1[0].x+3 < rect2[0].x + rect2[2].width &&
+      	if (rect1[0].x < rect2[0].x + rect2[2].width &&
    		rect1[0].x + rect1[2].width > rect2[0].x &&
    		rect1[1].y < rect2[1].y + rect2[3].height &&
    		rect1[3].height + rect1[1].y > rect2[1].y) {
