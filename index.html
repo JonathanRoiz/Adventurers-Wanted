@@ -19,54 +19,94 @@
     <script language = "javascript">
       var canvas = document.getElementById("myCanvas");
       var ctx = canvas.getContext("2d");
-      var width = canvas.width;
-      var height = canvas.height;
-      var x = width;
-      var y = height;
+      canvas.width  = window.innerWidth/1.005;
+      canvas.height = window.innerHeight/1.005;
+      var width = canvas.width/2;
+      var height = canvas.height/2;
+      var xPos = width;
+      var yPos = height;
+      var DPressed = false;
+      var APressed = false;
+      var SPressed = false;
+      var WPressed = false;
       
-      document.addEventListener("Akeydown", DkeyDownHandler, false);
-      document.addEventListener("Akeyup", DkeyUpHandler, false);
-      document.addEventListener("Dkeydown", AkeyDownHandler, false);
-      document.addEventListener("Dkeyup", AkeyUpHandler, false);
+      document.addEventListener("keydown", keyDownHandler, false);
+      document.addEventListener("keyup", keyUpHandler, false);
       
-      function DkeyDownHandler(e) {
+      function keyDownHandler(e) {
         if(e.keyCode == 68) {
-        	dPressed = true;
+        	DPressed = true;
         }
-      }
-      function DkeyUpHandler(e) {
-          if(e.keyCode == 68) {
-          	dPressed = false;
-            alert("hello");
-          }
-      }
-      function AkeyDownHandler(e) {
         if(e.keyCode == 65) {
-        	aPressed = true;
+        	APressed = true;
+        }
+        if(e.keyCode == 83) {
+        	SPressed = true;
+        }
+        if(e.keyCode == 87) {
+        	WPressed = true;
         }
       }
-      function AkeyUpHandler(e) {
+      function keyUpHandler(e) {
+          if(e.keyCode == 68) {
+          	DPressed = false;
+          }
           if(e.keyCode == 65) {
-          	aPressed = false;
+          	APressed = false;
+          }
+          if(e.keyCode == 83) {
+          	SPressed = false;
+          }
+          if(e.keyCode == 87) {
+        	WPressed = false;
           }
       }
       
       setInterval(function() {
-      	if (dPressed == true) {
-        	x += 2;
+      	if (DPressed == true) {
+        	xPos += 3;
         }
-        if (aPressed == true) {
-        	x += 2;
+        if (APressed == true) {
+        	xPos += -3;
+        }
+        if (SPressed == true) {
+        	yPos += 3;
+        }
+        if (WPressed == true) {
+        	yPos += -3;
         }
       },25)
       
-      obj = 50;
-      canvas.width  = window.innerWidth/1.005;
-      canvas.height = window.innerHeight/1.005;
+      function checkCollision(rect1,rect2) {
+      	if (rect1[0].x < rect2[0].x + rect2[2].width &&
+   		rect1[0].x + rect1[2].width > rect2[0].x &&
+   		rect1[1].y < rect2[1].y + rect2[3].height &&
+   		rect1[3].height + rect1[1].y > rect2[1].y) {
+    		// collision detected!
+            alert("Collision Detected!");
+		}
+      }
+      
+      obsX = 50;
+      obsY = 200;
       setInterval(function() {
+        var character = [
+      		{x: xPos},
+        	{y: yPos},
+      		{width: 50},
+      		{height: 50}
+      	];
+      	var obstacle = [
+      		{x: 100},
+        	{y: 100},
+      		{width: 50},
+      		{height: 100}
+      	];
       	ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle="#353839";
-        ctx.fillRect(x,y,obj,obj);
+        ctx.fillRect(character[0].x,character[1].y,character[2].width,character[3] height);
+        ctx.fillRect(obstacle[0].x,obstacle[1].y,obstacle[2].width,obstacle[3].height);
+        checkCollision(character,obstacle);
       },25)
       
     </script>
