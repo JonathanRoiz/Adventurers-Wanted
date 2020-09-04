@@ -67,17 +67,21 @@
    		rect1[1].y < rect2[1].y + rect2[3].height &&
    		rect1[3].height + rect1[1].y > rect2[1].y) {
     		// collision detected!
+            if (rect1[0].x <= (rect2[0].x + 12)) {
+            	APressed = false;
+            	xPos = (rect2[0].x+24)-rect1[0].x;
+            }
             if (APressed == true) {
-				xPos += 3;
+            	
             }
             if (DPressed == true) {
-            	xPos -=3;
+            	
             }
             if (SPressed == true) {
-            	yPos -=3;
+            	
             }
             if (WPressed == true) {
-            	yPos +=3;
+            	
             }
             var character = [
       			{x: xPos},
@@ -85,7 +89,7 @@
       			{width: 50},
       			{height: 50}
       		];
-	  	}
+        }
       }
 		
 	  setInterval(function() {
@@ -95,6 +99,7 @@
       		{width: 50},
       		{height: 50}
       	];
+        var characterLeftSide = character[0].x;
       	var wall = [
       		{x: 0},
         	{y: 0},
@@ -132,7 +137,8 @@
         if (WPressed == true) {
         	yPos += -3;
         }
-		checkCollision(character,wall);
+        
+        checkCollision(character,wall);
         checkCollision(character,wall2);
         checkCollision(character,wall3);
         checkCollision(character,wall4);
