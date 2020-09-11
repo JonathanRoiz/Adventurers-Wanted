@@ -93,7 +93,7 @@
         
         if (touchingGround == false) {
           yPos += fallingSpeed;
-          fallingSpeed = 1 + (fallingAcceleration*time);
+          fallingSpeed = fallingSpeed + (fallingAcceleration/(1000/time));
         }
 
       	if (DPressed == true) {
