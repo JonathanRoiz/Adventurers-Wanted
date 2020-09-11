@@ -27,7 +27,9 @@
       var APressed = false;
       var DPressed = false;
       var Acceleration = 9.8;
-      var Velocity = 1;
+      var Velocity = 0;
+      var xVelocity = 0;
+      var jump = false;
       var time = 1;
       var touchingGround = false;
 
@@ -43,7 +45,9 @@
         	APressed = true;
         }
         if(e.keyCode == 32) {
-        	SpacePressed = true;
+          if (SpacePressed == false) {
+        	  SpacePressed = true;
+          }
         }
       }
       function keyUpHandler(e) {
@@ -53,20 +57,20 @@
           if(e.keyCode == 65) {
           	APressed = false;
           }
-          if(e.keyCode == 32) {
-        	SpacePressed = false;
-          }
       }
+
       function checkCollision(rect1,rect2) {
       	if (rect1[0].x < rect2[0].x + rect2[2].width &&
    		    rect1[0].x + rect1[2].width > rect2[0].x &&
    		    rect1[1].y < rect2[1].y + rect2[3].height &&
    		    rect1[3].height + rect1[1].y > rect2[1].y) {
-    		// collision detected!
-          	touchingGround = true;
-			Velocity = 1;
+    		  // collision detected!
+          touchingGround = true;
+          jump = true;
+          Velocity = 0;
         } else {
-          	touchingGround = false;
+          touchingGround = false;
+          SpacePressed = false;
         }
       }
 		
@@ -85,20 +89,32 @@
       	];
         
         if (touchingGround == false) {
-          yPos += Velocity;
           Velocity = Velocity + Acceleration/(1000/time);
         }
-
-      	if (DPressed == true) {
-        	xPos += 1;
-        }
+        
         if (APressed == true) {
-        	xPos += -1;
-        }
-        if (SpacePressed == true) {
-        	yPos += -1;
+        	xVelocity = -1;
+        } else if (DPressed == true) {
+          xVelocity = 1
         }
         
+
+        if (DPressed == true) {
+        	xVelocity = 1;
+        } else if (APressed == true) {
+          xVelocity = -1;
+        } else {
+          xVelocity = 0;
+        }
+        
+        if (SpacePressed == true) {
+          if (jump == true) {
+            Velocity = -1.5;
+            jump = false;
+          }
+        }
+        xPos += xVelocity;
+        yPos += Velocity;
         checkCollision(character,wall4);
       	ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle="#353839";
