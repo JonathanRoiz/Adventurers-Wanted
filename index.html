@@ -27,7 +27,7 @@
       var APressed = false;
       var SPressed = false;
       var DPressed = false;
-      var Acceleration = 7;
+      var Acceleration = 9.8;
       var Velocity = 1;
       var time = 1;
       var touchingGround = false;
@@ -43,11 +43,8 @@
         if(e.keyCode == 65) {
         	APressed = true;
         }
-        if(e.keyCode == 83) {
-        	SPressed = true;
-        }
-        if(e.keyCode == 87) {
-        	WPressed = true;
+        if(e.keyCode == 32) {
+        	SpacePressed = true;
         }
       }
       function keyUpHandler(e) {
@@ -57,11 +54,8 @@
           if(e.keyCode == 65) {
           	APressed = false;
           }
-          if(e.keyCode == 83) {
-          	SPressed = false;
-          }
-          if(e.keyCode == 87) {
-        	WPressed = false;
+          if(e.keyCode == 32) {
+        	SpacePressed = false;
           }
       }
       function checkCollision(rect1,rect2) {
@@ -69,11 +63,11 @@
    		    rect1[0].x + rect1[2].width > rect2[0].x &&
    		    rect1[1].y < rect2[1].y + rect2[3].height &&
    		    rect1[3].height + rect1[1].y > rect2[1].y) {
-    		  // collision detected!
-          touchingGround = true;
-		Velocity = 1;
+    		// collision detected!
+          	touchingGround = true;
+			Velocity = 1;
         } else {
-          touchingGround = false;
+          	touchingGround = false;
         }
       }
 		
@@ -102,11 +96,8 @@
         if (APressed == true) {
         	xPos += -1;
         }
-        if (SPressed == true) {
-        	//yPos += 1;
-        }
-        if (WPressed == true) {
-        	//yPos += -1;
+        if (SpacePressed == true) {
+        	yPos += -1;
         }
         
         checkCollision(character,wall4);
