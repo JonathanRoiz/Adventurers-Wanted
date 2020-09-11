@@ -27,8 +27,8 @@
       var APressed = false;
       var SPressed = false;
       var DPressed = false;
-      var fallingAcceleration = 9.8;
-      var fallingSpeed = 1;
+      var Acceleration = 9.8;
+      var Velocity = 1;
       var time = 1;
       var touchingGround = false;
 
@@ -92,8 +92,8 @@
       	];
         
         if (touchingGround == false) {
-          yPos += fallingSpeed;
-          fallingSpeed = fallingSpeed + fallingAcceleration/(10000/time);
+          yPos += Velocity;
+          Velocity = Velocity + Acceleration/(10000/time);
         }
 
       	if (DPressed == true) {
