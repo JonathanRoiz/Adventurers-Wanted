@@ -66,11 +66,12 @@
    		    rect1[3].height + rect1[1].y > rect2[1].y + 10) {
     		  // collision detected!
           touchingGround = true;
-          jump = true;
           Velocity = 0;
+		return true;
         } else {
           touchingGround = false;
           SpacePressed = false;
+		return false;
         }
       }
 		
@@ -108,7 +109,7 @@
         }
         
         if (SpacePressed == true) {
-          if (jump == true) {
+          if (checkCollision(character, wall4)) {
             Velocity = -3;
             jump = false;
           }
