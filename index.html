@@ -26,7 +26,6 @@
       var SpacePressed = false;
       var APressed = false;
       var DPressed = false;
-      var Acceleration = 5;
       var Velocity = 0;
       var xVelocity = 0;
       var jump = false;
@@ -86,7 +85,7 @@
       		{height: canvas.width/60}
       	];
         
-        Velocity = Velocity + Acceleration/(1000/time);
+        Velocity = Velocity;
         
         if (APressed == true) {
         	xVelocity = -1;
