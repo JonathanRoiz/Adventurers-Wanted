@@ -31,7 +31,6 @@
       var xVelocity = 0;
       var jump = false;
       var time = 5;
-      var touchingGround = false;
 
       
       document.addEventListener("keydown", keyDownHandler, false);
@@ -66,11 +65,9 @@
    		    rect1[1].y < rect2[1].y + rect2[3].height &&
    		    rect1[3].height + rect1[1].y > rect2[1].y + 10) {
     		  // collision detected!
-          touchingGround = true;
           Velocity = 0;
 		return true;
         } else {
-          touchingGround = false;
 		return false;
         }
       }
@@ -89,9 +86,7 @@
       		{height: canvas.width/60}
       	];
         
-        if (touchingGround == false) {
-          Velocity = Velocity + Acceleration/(1000/time);
-        }
+        Velocity = Velocity + Acceleration/(1000/time);
         
         if (APressed == true) {
         	xVelocity = -1;
@@ -109,13 +104,15 @@
         }
         
         if (SpacePressed == true) {
-          if (checkCollision(character, wall4) == false) {
+          if (checkCollision(character, wall4) == true) {
             Velocity = -3;
             jump = false;
           }
         }
         xPos += xVelocity;
-        yPos += Velocity;
+	if (checkCollision(character,wall4) == false) {
+        	yPos += Velocity;
+	}
         checkCollision(character,wall4);
       	ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle="#353839";
