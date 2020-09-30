@@ -109,7 +109,7 @@
         }
         
         if (SpacePressed == true) {
-          if (checkCollision(character, wall4)) {
+          if (checkCollision(character, wall4) == false) {
             Velocity = -3;
             jump = false;
           }
