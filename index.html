@@ -63,7 +63,7 @@
       	if (rect1[0].x < rect2[0].x + rect2[2].width &&
    		    rect1[0].x + rect1[2].width > rect2[0].x &&
    		    rect1[1].y < rect2[1].y + rect2[3].height &&
-   		    rect1[3].height + rect1[1].y > rect2[1].y) {
+   		    rect1[3].height + rect1[1].y > rect2[1].y + 10) {
     		  // collision detected!
           touchingGround = true;
           jump = true;
