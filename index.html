@@ -101,14 +101,15 @@
         }
         
         if (SpacePressed == true) {
-          if (checkCollision(character, wall4) == false) {
+          if (checkCollision(character, wall4) == true) {
             Velocity = -3;
           }
         }
         xPos += xVelocity;
-	if (checkCollision(character,wall4) == true) {
-        	yPos += Velocity;
+	if (checkCollision(character,wall4) == false) {
+        	Velocity = 0;
 	}
+	yPos += Velocity;
         checkCollision(character,wall4);
       	ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle="#353839";
