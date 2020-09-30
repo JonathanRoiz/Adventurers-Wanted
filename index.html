@@ -28,9 +28,7 @@
       var DPressed = false;
       var Velocity = 0;
       var xVelocity = 0;
-      var jump = false;
       var time = 5;
-
       
       document.addEventListener("keydown", keyDownHandler, false);
       document.addEventListener("keyup", keyUpHandler, false);
@@ -103,13 +101,12 @@
         }
         
         if (SpacePressed == true) {
-          if (checkCollision(character, wall4) == true) {
+          if (checkCollision(character, wall4) == false) {
             Velocity = -3;
-            jump = false;
           }
         }
         xPos += xVelocity;
-	if (checkCollision(character,wall4) == false) {
+	if (checkCollision(character,wall4) == true) {
         	yPos += Velocity;
 	}
         checkCollision(character,wall4);
