@@ -45,9 +45,7 @@
         	APressed = true;
         }
         if(e.keyCode == 32) {
-          if (SpacePressed == false) {
-        	  SpacePressed = true;
-          }
+        	SpacePressed = true;
         }
       }
       function keyUpHandler(e) {
@@ -57,6 +55,9 @@
           if(e.keyCode == 65) {
           	APressed = false;
           }
+	  if(e.keyCode == 32) {
+       		SpacePressed = false;
+	  }
       }
 
       function checkCollision(rect1,rect2) {
@@ -70,7 +71,6 @@
 		return true;
         } else {
           touchingGround = false;
-          SpacePressed = false;
 		return false;
         }
       }
